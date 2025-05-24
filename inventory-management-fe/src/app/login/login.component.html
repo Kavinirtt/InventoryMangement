@@ -1,0 +1,49 @@
+<div class="auth-container">
+    <div class="auth-toggle">
+        <button (click)="showLogin = true" [class.active]="showLogin">Sign In</button>
+        <button (click)="showLogin = false" [class.active]="!showLogin">Sign Up</button>
+    </div>
+    <p *ngIf="message">Sign up successfully completed signin now</p>
+    <div class="form-wrapper">
+        <form *ngIf="showLogin" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="login-username">Username</label>
+                <input id="login-username" formControlName="username" type="text" />
+                <div class="error" *ngIf="username?.touched && username?.invalid">
+                    <div *ngIf="username?.errors?.['required']">Username is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input id="login-password" formControlName="password" type="password" />
+                <div class="error" *ngIf="password?.touched && password?.invalid">
+                    <div *ngIf="password?.errors?.['required']">Password is required.</div>
+                </div>
+            </div>
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+
+
+        <form *ngIf="!showLogin" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+            <h2>Sign Up</h2>
+            <div class="form-group">
+                <label for="signup-username">Username</label>
+                <input id="signup-username" formControlName="username" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input id="signup-password" formControlName="password" type="password" />
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" formControlName="role_id">
+                    <option [ngValue]="null">Select Role</option>
+                    <option [ngValue]="1">Admin</option>
+                    <option [ngValue]="2">Staff</option>
+                </select>
+            </div>
+            <button type="submit" [disabled]="signupForm.invalid">Register</button>
+        </form>
+    </div>
+</div>
