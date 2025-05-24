@@ -36,6 +36,7 @@ Password: Pass@123
 Username: VGstaff
 Password: Pass@123
 
+ADDED ASSEST FOR REFERENCE
 
 Best Practices Followed
 Password Security
