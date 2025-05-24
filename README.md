@@ -37,6 +37,20 @@ Username: VGstaff
 Password: Pass@123
 
 
+Best Practices Followed
+Password Security
+Passwords are securely hashed using bcrypt before storing in the database to protect user credentials.
+
+Authentication & Authorization
+JWT tokens are validated in middleware to ensure secure access control before users can reach protected routes.
+
+Type Safety & Code Maintainability
+Used Interfaces and Enums to enforce consistent data structures and improve code readability.
+
+Modular Architecture
+Organized the codebase by separating concerns into dedicated components, controllers, routes, and service files, enhancing scalability and maintainability.
+
+
 
 
 
